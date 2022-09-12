@@ -12,26 +12,19 @@ $db_pass = "E7software1128";
 $db_name = "E7software_bd";
 
 
+	$host = "146.83.194.142";
+	$dbname = "E7software_bd";
+	$user = "E7software";
+	$pass = "E7software1128";
+	$dsn = "mysql:host=$host;dbname=$dbname";
+	try {
+		$bd= new PDO($dsn, $user, $pass);
+		$bd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	} catch (PDOException $error){
+		echo $error->getMessage();
+        echo 'no se pudo conectar a la base de datos:' .mysqli_connect_errno()();
+	}
 
-/*
-// SERVIDOR
-$db_host = "localhost";
-$db_user = "id19376874_e7software";
-$db_pass = "8KWE_I@RWtQ9tmkH";
-$db_name = "id19376874_e7software_bd";
-*/
-// CONEXIÓN CON PDO ($bd)
-try {
-    $bd = new PDO(
-        'mysql:host='.$db_host. ';
-        dbname='.$db_name,
-        $db_user,
-        $db_pass,
-        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
-    );
-} catch (Exception $e) {
-    echo "Error de conexión ".$e->getMessage();
-}
 
 
 //CONEXIÓN CON  MYSQLI_CONNECT ($con)
